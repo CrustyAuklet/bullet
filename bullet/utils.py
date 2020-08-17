@@ -17,7 +17,10 @@ if sys.platform == 'win32':
     def mygetc():
         '''Gets raw characters from input on Windows'''
         c = msvcrt.getch()
-        c = c.decode('mbcs')
+        try:
+            c = c.decode('mbcs')
+        except:
+            pass
 
         return c
 
